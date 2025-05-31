@@ -14,7 +14,6 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      {/* Header */}
       <header className="flex items-center justify-between px-8 py-6 bg-black shadow-md">
         <div className="flex items-center space-x-4">
           <Image src={LogoMin} alt="Logo" className="h-16 w-auto" />
@@ -22,7 +21,6 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Hero Section */}
       <section className="relative text-center py-20 px-6 bg-gradient-to-b from-black to-gray-900">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-5xl font-extrabold mb-6 text-yellow-400">Excelência em Enfermagem</h2>
@@ -33,7 +31,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Serviços */}
       <section className="py-24 px-6 bg-black">
         <h3 className="text-4xl font-bold text-center mb-16 text-yellow-400">Nossos Serviços</h3>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto text-lg text-gray-300">
@@ -53,19 +50,24 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="text-center py-20 px-6 bg-yellow-500 text-black">
         <h4 className="text-4xl font-bold mb-4">Vamos cuidar juntos da saúde?</h4>
         <p className="text-lg mb-6">Fale conosco para agendar atendimentos ou conhecer nossos serviços.</p>
-        <a href="#" className="bg-black text-yellow-400 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-800 transition duration-300">
+        <a href="https://www.contate.me/5585996813965" className="bg-black text-yellow-400 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-800 transition duration-300">
           Entrar em Contato
         </a>
       </section>
 
-      {/* Footer */}
       <footer className="bg-black text-center text-sm py-8 text-gray-500">
-        &copy; 2025 Feito por GMSolution. Todos os direitos reservados.
-      </footer>
+  &copy; 2025 Feito por{" "}
+  <a
+    href="https://gmsolutionti.com.br" // substitua pelo seu link real
+    className="text-blue-500 hover:underline"
+  >
+    GMSolution
+  </a>. Todos os direitos reservados.
+</footer>
+
 
       <style jsx>{`
         @keyframes fade-in {
