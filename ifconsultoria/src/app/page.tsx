@@ -53,7 +53,7 @@ export default function Home() {
       <section className="text-center py-20 px-6 bg-yellow-500 text-black">
         <h4 className="text-4xl font-bold mb-4">Vamos cuidar juntos da saúde?</h4>
         <p className="text-lg mb-6">Fale conosco para agendar atendimentos ou conhecer nossos serviços.</p>
-        <a href="https://www.contate.me/5585996813965" className="bg-black text-yellow-400 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-800 transition duration-300">
+        <a href="https://www.contate.me/5585988885910" className="bg-black text-yellow-400 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-800 transition duration-300">
           Entrar em Contato
         </a>
       </section>
