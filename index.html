@@ -1,81 +1,162 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Página em Construção</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site em Manutenção</title>
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #fceabb 0%, #f8b500 100%);
-      color: #2c3e50;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-    .container {
-      text-align: center;
-      background: #fff;
-      padding: 50px 30px;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      max-width: 500px;
-      width: 90%;
-      animation: fadeIn 1s ease-out;
-    }
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    .icon {
-      font-size: 60px;
-      margin-bottom: 20px;
-      color: #f39c12;
-    }
+    <style>
+        /* ---- Reset Básico e Configurações Globais ---- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    h1 {
-      font-size: 2em;
-      margin-bottom: 10px;
-    }
+        body, html {
+            height: 100%;
+            font-family: 'Poppins', sans-serif;
+        }
 
-    p {
-      font-size: 1.1em;
-      margin-bottom: 30px;
-      color: #555;
-    }
+        body {
+            background: linear-gradient(135deg, #1d2b3a, #121c26);
+            color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
 
-    a.button {
-      display: inline-block;
-      padding: 12px 24px;
-      background-color: #f39c12;
-      color: white;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: background-color 0.3s ease;
-    }
+        /* ---- Container Principal da Manutenção ---- */
+        .maintenance-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
 
-    a.button:hover {
-      background-color: #d78e00;
-    }
+        .maintenance-content {
+            max-width: 650px;
+            padding: 40px;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
+        /* ---- Ícone Animado ---- */
+        .maintenance-icon {
+            font-size: 6rem; /* Tamanho do ícone */
+            color: #00aaff; /* Cor vibrante para o ícone */
+            margin-bottom: 30px;
+            display: inline-block;
+            
+            /* Animação de rotação */
+            animation: spin 8s linear infinite;
+        }
+
+        /* Animação Keyframes */
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* ---- Textos ---- */
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .thanks {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #00aaff;
+        }
+
+        /* ---- Links de Redes Sociais ---- */
+        .social-links {
+            margin-top: 40px;
+        }
+
+        .social-links p {
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .social-links a {
+            color: #f0f0f0;
+            font-size: 1.5rem;
+            margin: 0 15px;
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #00aaff; /* Muda para a cor de destaque no hover */
+            transform: translateY(-3px); /* Efeito de elevação */
+        }
+
+        /* ---- Media Query para Responsividade ---- */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .maintenance-icon {
+                font-size: 5rem;
+            }
+            
+            .maintenance-content {
+                padding: 30px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <div class="icon">🚧</div>
-    <h1>Estamos Trabalhando Nisso!</h1>
-    <p>Nossa página está em construção no momento. Voltaremos em breve com muitas novidades!</p>
-  </div>
+
+    <div class="maintenance-container">
+        <div class="maintenance-content">
+            <i class="fas fa-cogs maintenance-icon"></i>
+            <h1>Estamos em Manutenção</h1>
+            <p class="subtitle">
+                Estamos trabalhando para melhorar sua experiência. Nosso site estará de volta em breve!
+            </p>
+            <p class="thanks">
+                Agradecemos a sua paciência.
+            </p>
+            <div class="social-links">
+                
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>

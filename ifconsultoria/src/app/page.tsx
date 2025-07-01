@@ -4,7 +4,12 @@
 import Image from 'next/image';
 import Head from 'next/head';
 import LogoMin from '../../public/logomin.png';
-import LogoMax from '../../public/logomax.png'
+import LogoMax from '../../public/logomax.png';
+
+import CeoImage from '../../public/CEO2.jpeg';
+import Team1 from '../../public/team1.jpg';
+import Team2 from '../../public/team2.jpg';
+import Team3 from '../../public/team3.jpg';
 
 export default function Home() {
   return (
@@ -17,7 +22,6 @@ export default function Home() {
       <header className="flex items-center justify-between px-8 py-6 bg-black shadow-md">
         <div className="flex items-center space-x-4">
           <Image src={LogoMin} alt="Logo" className="h-16 w-auto" />
-          <h1 className="text-3xl font-extrabold tracking-wide"></h1>
         </div>
       </header>
 
@@ -50,6 +54,54 @@ export default function Home() {
         </div>
       </section>
 
+      {/* CEO Section */}
+     <section className="py-24 px-6 bg-gray-900 text-center md:text-left">
+  <h3 className="text-4xl font-bold text-yellow-400 mb-16 text-center">Nosso CEO</h3>
+  <div className="flex flex-col md:flex-row items-center md:items-start max-w-5xl mx-auto gap-10">
+    <Image
+      src={CeoImage}
+      alt="CEO"
+      className="rounded-3xl w-90 h-120 object-cover border-4 border-yellow-400 shadow-lg"
+    />
+    <div>
+      <h4 className="text-3xl font-semibold mb-4 text-white">Dr. Ismael Frota</h4>
+     <p className="text-2xl text-gray-300 leading-relaxed space-y-4">
+  <span className="block">
+    <strong>CEO da IF Atendimentos e Consultorias em Enfermagem</strong>
+  </span>
+
+  <span className="block">
+    Enfermeiro Assistente da Atenção Secundária e Especializada de Maracanaú
+  </span>
+
+  <span className="block">
+    <strong>Especializações:</strong><br />
+    - Planejamento e Gestão em Saúde<br />
+    - Auditoria dos Serviços de Saúde<br />
+    - Vigilância em Saúde<br />
+    - Saúde da Mulher<br />
+    - Enfermagem Obstétrica<br />
+    - Urgência e Emergência em Enfermagem<br />
+    - Enfermagem Forense (em andamento)
+  </span>
+
+  <span className="block">
+    <strong>Formações:</strong><br />
+    - Graduação em Gestão de Serviços em Saúde<br />
+    - Graduação em Enfermagem<br />
+    - Mestrando em Unidade de Terapia Intensiva
+  </span>
+
+  <span className="block">
+    Professor Universitário e Coordenador de Enfermagem da Uninassau Maracanaú
+  </span>
+</p>
+
+    </div>
+  </div>
+</section>
+
+
       <section className="text-center py-20 px-6 bg-yellow-500 text-black">
         <h4 className="text-4xl font-bold mb-4">Vamos cuidar juntos da saúde?</h4>
         <p className="text-lg mb-6">Fale conosco para agendar atendimentos ou conhecer nossos serviços.</p>
@@ -59,15 +111,9 @@ export default function Home() {
       </section>
 
       <footer className="bg-black text-center text-sm py-8 text-gray-500">
-  &copy; 2025 Feito por{" "}
-  <a
-    href="https://gmsolutionti.com.br" // substitua pelo seu link real
-    className="text-blue-500 hover:underline"
-  >
-    GMSolution
-  </a>. Todos os direitos reservados.
-</footer>
-
+        &copy; 2025 Feito por{" "}
+        <a href="https://gmsolutionti.com.br" className="text-blue-500 hover:underline">GMSolution</a>. Todos os direitos reservados.
+      </footer>
 
       <style jsx>{`
         @keyframes fade-in {
