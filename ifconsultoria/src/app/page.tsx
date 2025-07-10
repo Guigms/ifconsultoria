@@ -1,15 +1,20 @@
 // app/page.tsx
 'use client';
 
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { motion } from 'framer-motion';
+import { Pagination, Navigation, Autoplay, EffectFade } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 import Image from 'next/image';
 import Head from 'next/head';
 import LogoMin from '../../public/logomin.png';
 import LogoMax from '../../public/logomax.png';
-
+import { testimonials } from './components/testimonials';
 import CeoImage from '../../public/CEO2.jpeg';
-import Team1 from '../../public/team1.jpg';
-import Team2 from '../../public/team2.jpg';
-import Team3 from '../../public/team3.jpg';
+import 'swiper/css/effect-fade';
+
 
 export default function Home() {
   return (
@@ -89,7 +94,7 @@ export default function Home() {
     <strong>Formações:</strong><br />
     - Graduação em Gestão de Serviços em Saúde<br />
     - Graduação em Enfermagem<br />
-    - Mestrando em Unidade de Terapia Intensiva
+    - Mestrado em Unidade de Terapia Intensiva
   </span>
 
   <span className="block">
@@ -99,6 +104,48 @@ export default function Home() {
 
     </div>
   </div>
+</section>
+<section className="bg-gray-900 py-24 px-6">
+  <h3 className="text-4xl font-bold text-yellow-400 text-center mb-16">
+    Depoimentos de Alunos
+  </h3>
+
+  <motion.div
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1 }}
+    viewport={{ once: true }}
+  >
+    <Swiper
+      spaceBetween={30}
+      effect="fade"
+      fadeEffect={{ crossFade: true }}
+      speed={1000}
+      centeredSlides={true}
+      autoplay={{
+        delay: 5000,
+        disableOnInteraction: false,
+      }}
+      pagination={{ clickable: true }}
+      navigation={true}
+      modules={[Autoplay, Pagination, Navigation, EffectFade]}
+      className="max-w-5xl mx-auto"
+    >
+      {testimonials.map((t, i) => (
+        <SwiperSlide key={i}>
+          <div className="bg-gray-800 p-10 rounded-3xl text-white text-center shadow-xl flex flex-col items-center transition-all duration-1000 ease-in-out">
+            <img
+              src={t.photo}
+              alt={t.name}
+              className="w-48 h-48 rounded-full mb-4 object-cover border-4 border-yellow-400 transition-transform duration-500 hover:scale-105"
+            />
+            <p className="text-xl italic mb-4">"{t.message}"</p>
+            <h5 className="text-lg font-semibold text-yellow-400">{t.name}</h5>
+          </div>
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  </motion.div>
 </section>
 
 
