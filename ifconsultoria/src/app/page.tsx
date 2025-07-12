@@ -14,6 +14,8 @@ import LogoMax from '../../public/logomax.png';
 import { testimonials } from './components/testimonials';
 import CeoImage from '../../public/CEO2.jpeg';
 import 'swiper/css/effect-fade';
+import { Target, Handshake, Star, Eye } from 'lucide-react';
+import equipe from '../../public/equipe.jpeg'
 
 
 export default function Home() {
@@ -105,6 +107,20 @@ export default function Home() {
     </div>
   </div>
 </section>
+<section className="py-24 px-6 bg-gray-900 text-center text-white">
+  <h3 className="text-4xl font-bold text-yellow-400 mb-8">Nossa Equipe</h3>
+  <p className="text-lg text-gray-300 mb-12 max-w-3xl mx-auto">
+    Uma equipe dedicada, capacitada e apaixonada pelo cuidado com a saúde. Trabalhamos juntos para oferecer excelência e humanização em todos os atendimentos.
+  </p>
+  <div className="flex justify-center">
+    <Image
+      src={equipe}
+      alt="Equipe IF"
+      className="rounded-3xl shadow-2xl border-4 border-yellow-400 max-w-4xl w-full object-cover"
+    />
+  </div>
+</section>
+
 <section className="bg-gray-900 py-24 px-6">
   <h3 className="text-4xl font-bold text-yellow-400 text-center mb-16">
     Depoimentos de Alunos
@@ -147,6 +163,37 @@ export default function Home() {
     </Swiper>
   </motion.div>
 </section>
+<section className="py-24 px-6 bg-black text-white text-center">
+  <h3 className="text-4xl font-bold text-yellow-400 mb-16">Nossa Essência</h3>
+  <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-12 text-left">
+    
+    <div className="flex flex-col items-center text-center px-4">
+      <Target className="w-12 h-12 text-yellow-400 mb-4" />
+      <h4 className="text-2xl font-semibold mb-2 text-yellow-300">Missão</h4>
+      <p className="text-lg text-gray-300">
+        Promover a qualificação de profissionais e estudantes da saúde para o desenvolvimento de uma assistência e gerenciamento, proporcionando a melhoria no atendimento ao paciente.
+      </p>
+    </div>
+
+    <div className="flex flex-col items-center text-center px-4">
+      <Eye className="w-12 h-12 text-yellow-400 mb-4" />
+      <h4 className="text-2xl font-semibold mb-2 text-yellow-300">Visão</h4>
+      <p className="text-lg text-gray-300">
+        Ser reconhecida em território estadual como uma empresa de serviços educacionais e de consultoria em saúde.
+      </p>
+    </div>
+
+    <div className="flex flex-col items-center text-center px-4">
+      <Star className="w-12 h-12 text-yellow-400 mb-4" />
+      <h4 className="text-2xl font-semibold mb-2 text-yellow-300">Valor</h4>
+      <p className="text-lg text-gray-300">
+        ética, humanização no atendimento, valorização das pessoas, satisfação em atender bem, responsabilidade social.
+      </p>
+    </div>
+
+  </div>
+</section>
+
 
 
       <section className="text-center py-20 px-6 bg-yellow-500 text-black">
