@@ -7,7 +7,7 @@ export type Testimonial = {
 
 export const testimonials: Testimonial[] = [
   {
-    name: 'Emerson Guerreiro',
+    name: 'Ermesson Guerreiro',
     photo: '/aluno1.jpeg',
     message: 'O curso me touxe vivências onde aperfeiçoou minhas técnicas me dando mais segurança em executa-las nos pacientes!',
   },

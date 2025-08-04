@@ -14,7 +14,7 @@ import Head from 'next/head';
 import LogoMin from '../../public/logomin.png';
 import LogoMax from '../../public/logomax.png';
 import { testimonials } from './components/testimonials';
-import CeoImage from '../../public/CEO2.jpeg';
+import CeoImage from '../../public/CeoImage.jpeg';
 import { Target, Eye, Star } from 'lucide-react';
 import equipe from '../../public/equipe.jpeg';
 import { useState } from 'react';
@@ -211,7 +211,7 @@ export default function Home() {
                 - Saúde da Mulher<br />
                 - Enfermagem Obstétrica<br />
                 - Urgência e Emergência em Enfermagem<br />
-                - Enfermagem Forense (em andamento)
+                - Enfermagem Forense
               </p>
               <p>
                 <strong>Formações:</strong><br />
