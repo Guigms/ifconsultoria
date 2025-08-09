@@ -9,31 +9,54 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image'; // ALTERADO: Importar StaticImageData
 import Head from 'next/head';
 import LogoMin from '../../public/logomin.png';
 import LogoMax from '../../public/logomax.png';
 import { testimonials } from './components/testimonials';
 import CeoImage from '../../public/CeoImage.jpeg';
 import { Target, Eye, Star } from 'lucide-react';
-import equipe from '../../public/equipe.jpeg';
+import equipe from '../../public/equipeIF.jpeg';
 import { useState } from 'react';
 import Swal from 'sweetalert2';
+
+// NOVO: Importe as imagens dos seus cursos aqui.
+// Certifique-se de que esses arquivos existam na sua pasta /public.
+import curso1 from "../../public/curso1.jpeg";
+import curso2 from "../../public/curso2.jpeg"; // Exemplo de imagem para o segundo curso
+import curso3 from "../../public/curso3.jpeg"; // Exemplo de imagem para o terceiro curso
 
 
 export default function Home() {
   const [cursoSelecionado, setCursoSelecionado] = useState<string | null>(null);
 
-  // NOVA FUNÇÃO para lidar com o envio do formulário de cursos
-  const handleSubmitCurso = async (event: React.FormEvent<HTMLFormElement>) => {
-    // 1. Previne o comportamento padrão (recarregar a página)
-    event.preventDefault();
+  const cursos = [
+    {
+      nome: 'Práticas Injetáveis',
+      descricao:
+        'Curso destinado a desenvolver competências e habilidades relacionadas a procedimentos injetáveis. Neste curso você desenvolverá suas habilidades para rotinas injetáveis com mais segurança e muita destreza técnica.',
+      imagem: curso1, // Referência à imagem importada
+    },
+    {
+      nome: 'Ventilação Mecânica da Teoria a Prática',
+      descricao:
+        'Um curso planejado para ajudar acadêmicos e profissionais da saúde descomplicando o entendimento e o manejo prático para aqueles que apresentam atribuição no manejo da ventilação mecânica.',
+      imagem: curso2, // Referência à imagem importada
+    },
+    {
+      nome: 'Interpretação de ECG para Enfermagem do Básico ao Avançado',
+      descricao:
+        'Curso destinado a desenvolver competências relacionadas a execução e interpretação do exame ECG. Neste curso você desenvolverá seu raciocínio clínico avançado na interpretação do exame e suas habilidades procedurais na aplicação da técnica do exame ECG.',
+      imagem: curso3, // Referência à imagem importada
+    },
+  ];
 
+  const handleSubmitCurso = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     const form = event.currentTarget;
     const formData = new FormData(form);
 
     try {
-      // 2. Envia os dados para o FormSubmit usando a API Fetch
       const response = await fetch(form.action, {
         method: 'POST',
         body: formData,
@@ -43,17 +66,14 @@ export default function Home() {
       });
 
       if (response.ok) {
-        // 3. Se o envio foi um sucesso, fecha o modal...
         setCursoSelecionado(null);
-        // ... e depois mostra o alerta bonito
         Swal.fire({
           icon: 'success',
           title: 'Enviado com Sucesso!',
           text: 'Seu interesse foi registrado. Em breve entraremos em contato.',
-          confirmButtonColor: '#facc15' // Cor amarela do seu site
+          confirmButtonColor: '#facc15'
         });
       } else {
-        // Mostra um alerta de erro caso algo dê errado
         throw new Error('Falha no envio do formulário.');
       }
     } catch (error) {
@@ -108,65 +128,54 @@ export default function Home() {
         </div>
       </section>
 
+      {/* SEÇÃO DE CURSOS ALTERADA */}
       <section className="py-24 px-6 bg-black text-white text-center">
         <h3 className="text-4xl font-bold text-yellow-400 mb-12">Nossos Cursos</h3>
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {[
-            {
-              nome: 'Práticas Injetáveis',
-              descricao:
-                'Curso destinado a desenvolver competências e habilidades relacionadas a procedimentos injetáveis. Neste  curso você desenvolverá suas habilidades para rotinas injetáveis com mais segurança e muita destreza técnica.',
-            },
-            {
-              nome: 'Ventilação Mecânica da Teoria a Prática',
-              descricao:
-                'Um curso planejado para ajudar acadêmicos e profissionais da saúde descomplicando o entendimento e o manejo prático para aqueles que apresentam atribuição no manejo da ventilaç!ao mecânica.',
-            },
-            {
-              nome: 'Interpretação de ECG para Enfermagem do Básico ao Avançado',
-              descricao:
-                'Curso destinado a desenvolver compeências relacionadas a execução e interpretação do exame ECG. Neste curso voc§e desenvolverá seu raciocínio clínico avançado na interpretação do exame e suas habilidades procedurais na aplicação da técnica do exame ECG.',
-            },
-          ].map((curso, idx) => (
+          {cursos.map((curso, idx) => (
             <div
               key={idx}
-              className="bg-gray-900 p-6 rounded-xl shadow-lg border border-gray-700 flex flex-col"
+              className="bg-gray-900 rounded-xl shadow-lg border border-gray-700 flex flex-col overflow-hidden"
             >
-              <h4 className="text-2xl font-semibold mb-4 text-white">
-                {curso.nome}
-              </h4>
-              <p className="text-gray-300 mb-6 flex-grow">{curso.descricao}</p>
-              <button
-                onClick={() => setCursoSelecionado(curso.nome)}
-                className="bg-yellow-400 text-black px-4 py-2 rounded-full font-bold hover:bg-yellow-300 transition mt-auto"
-              >
-                Tenho Interesse
-              </button>
+              <Image
+                src={curso.imagem}
+                alt={`Imagem do curso ${curso.nome}`}
+                width={400}
+                height={250}
+                className="w-full h-70 object-cover"
+              />
+              <div className="p-6 flex flex-col flex-grow">
+                <h4 className="text-2xl font-semibold mb-4 text-white">
+                  {curso.nome}
+                </h4>
+                <p className="text-gray-300 mb-6 flex-grow">{curso.descricao}</p>
+                <button
+                  onClick={() => setCursoSelecionado(curso.nome)}
+                  className="bg-yellow-400 text-black px-4 py-2 rounded-full font-bold hover:bg-yellow-300 transition mt-auto"
+                >
+                  Tenho Interesse
+                </button>
+              </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Modal com formulário CORRIGIDO */}
       {cursoSelecionado && (
         <section className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4">
           <form
-            // Lembre-se de substituir pelo seu e-mail real
             action="https://formsubmit.co/financeiro@ifenfermagem.com.br"
             method="POST"
             className="bg-white text-black p-8 rounded-xl shadow-xl w-full max-w-md space-y-4"
-            onSubmit={handleSubmitCurso} // AQUI está a chamada para a nova função
+            onSubmit={handleSubmitCurso}
           >
             <h4 className="text-2xl font-bold mb-4 text-center">Interesse: {cursoSelecionado}</h4>
-
             <input type="hidden" name="curso" value={cursoSelecionado} />
             <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_subject" value={`Novo Interesse no Curso: ${cursoSelecionado}`} />
-
             <input type="text" name="nome" placeholder="Seu nome completo" required className="w-full p-3 border rounded-md" />
             <input type="email" name="email" placeholder="Seu melhor e-mail" required className="w-full p-3 border rounded-md" />
             <input type="text" name="telefone" placeholder="Seu telefone/WhatsApp" required className="w-full p-3 border rounded-md" />
-
             <div className="flex justify-between items-center mt-6">
               <button type="submit" className="bg-yellow-400 px-6 py-2 rounded-full font-bold hover:bg-yellow-300">
                 Enviar
@@ -183,6 +192,8 @@ export default function Home() {
         </section>
       )}
 
+      {/* O restante do seu código permanece igual... */}
+      
       {/* Seção do CEO */}
       <section className="py-24 px-6 bg-gray-900 text-center md:text-left">
         <h3 className="text-4xl font-bold text-yellow-400 mb-16 text-center">Nosso CEO</h3>
@@ -272,10 +283,10 @@ export default function Home() {
               <SwiperSlide key={i}>
                 <div className="bg-gray-800 p-10 rounded-3xl text-white text-center shadow-xl flex flex-col items-center transition-all duration-1000 ease-in-out">
                   <Image
-                    src={t.photo} // Assumindo que t.photo é um caminho ou URL
+                    src={t.photo} 
                     alt={t.name}
-                    width={192} // 12rem
-                    height={192} // 12rem
+                    width={192}
+                    height={192}
                     className="w-48 h-48 rounded-full mb-4 object-cover border-4 border-yellow-400 transition-transform duration-500 hover:scale-105"
                   />
                   <p className="text-xl italic mb-4">"{t.message}"</p>
