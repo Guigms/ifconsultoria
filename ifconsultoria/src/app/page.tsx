@@ -19,13 +19,14 @@ import { Target, Eye, Star } from 'lucide-react';
 import equipe from '../../public/equipeIF.jpeg';
 import { useState } from 'react';
 import Swal from 'sweetalert2';
+import BackgroundMusic from './components/musicbg';
 
 // NOVO: Importe as imagens dos seus cursos aqui.
 // Certifique-se de que esses arquivos existam na sua pasta /public.
 import curso1 from "../../public/curso1.jpeg";
-import curso2 from "../../public/curso2.jpeg"; // Exemplo de imagem para o segundo curso
-import curso3 from "../../public/curso3.jpeg"; // Exemplo de imagem para o terceiro curso
-
+import curso2 from "../../public/curso2.jpeg";
+import curso3 from "../../public/curso3.jpeg";
+import curso4 from "../../public/curso4.jpeg";
 
 export default function Home() {
   const [cursoSelecionado, setCursoSelecionado] = useState<string | null>(null);
@@ -48,6 +49,12 @@ export default function Home() {
       descricao:
         'Curso destinado a desenvolver competências relacionadas a execução e interpretação do exame ECG. Neste curso você desenvolverá seu raciocínio clínico avançado na interpretação do exame e suas habilidades procedurais na aplicação da técnica do exame ECG.',
       imagem: curso3, // Referência à imagem importada
+    },
+    {
+      nome: 'Interpretação de exames laboratoriais',
+      descricao:
+        'Curso destinado a desenvolver competências relacionadas a execução e interpretação do exames laborais. Neste curso você desenvolverá seu raciocínio clínico avançado na interpretação de exames laborais.',
+      imagem: curso4, // Referência à imagem importada
     },
   ];
 
@@ -94,6 +101,7 @@ export default function Home() {
       </Head>
 
       <header className="flex items-center justify-between px-8 py-6 bg-black shadow-md">
+        <BackgroundMusic></BackgroundMusic>
         <div className="flex items-center space-x-4">
           <Image src={LogoMin} alt="Logo" className="h-16 w-auto" />
         </div>
@@ -142,7 +150,7 @@ export default function Home() {
                 alt={`Imagem do curso ${curso.nome}`}
                 width={400}
                 height={250}
-                className="w-full h-70 object-cover"
+                className="w-full h-80 object-cover"
               />
               <div className="p-6 flex flex-col flex-grow">
                 <h4 className="text-2xl font-semibold mb-4 text-white">
